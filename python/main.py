@@ -13,4 +13,6 @@ parser.add_argument('--lang',
 args = parser.parse_args()
 
 language = util.guess_from_ext(args.file)
+task_runner = core.task_generator(args.file, language, allow_handicap=True)
 
+# TODO: task_runner() ...
