@@ -1,2 +1,0 @@
-class LanguageNotSpecified(BaseException):
-    pass
