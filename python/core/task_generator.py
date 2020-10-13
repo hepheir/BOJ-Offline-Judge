@@ -4,14 +4,14 @@ import shutil
 import subprocess
 import resource
 
-from . import lang
 from .Unit import Unit
+from ..lang import Language
 
 STDIN = io.TextIOWrapper(io.BytesIO())
 STDOUT = io.TextIOWrapper(io.BytesIO())
 STDERR = io.TextIOWrapper(io.BytesIO())
 
-def task_generator(code_file:os.PathLike, language:lang.Language, allow_handicap:bool=True):
+def task_generator(code_file:os.PathLike, language:Language, allow_handicap:bool=True):
     shutil.copyfile(code_file, language.CODE)
     print('[INFO] Start Compile')
     subprocess.run(language.COMPILE,
@@ -21,7 +21,7 @@ def task_generator(code_file:os.PathLike, language:lang.Language, allow_handicap
         return __task(language, stdin_data, stdout_data, timelimit, memlimit, allow_handicap)
     return task_wrappper
 
-def __task(language:lang.Language, stdin_data:str, stdout_data:str, timelimit:Unit.Seconds, memlimit:Unit.Bytes, allow_handicap:bool=True):
+def __task(language:Language, stdin_data:str, stdout_data:str, timelimit:Unit.Seconds, memlimit:Unit.Bytes, allow_handicap:bool=True):
     # 입출력 준비
     STDIN.seek(0)
     STDIN.write(stdin_data)

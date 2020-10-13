@@ -1,5 +1,5 @@
-from ..Unit import MB, SECOND
-from .Language import Language
+from ..util.unit import MB, SECOND
+from ..lang import Language
 
 class Python3(Language):
     CODE = 'Main.py'
