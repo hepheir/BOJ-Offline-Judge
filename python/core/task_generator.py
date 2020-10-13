@@ -7,6 +7,7 @@ try:
     import resource
 except:
     does_support_resource = False
+    print('[WARN] module `resource` is not supported.\nProgram is not able to detect Memory limit error.')
 else:
     does_support_resource = True
 
