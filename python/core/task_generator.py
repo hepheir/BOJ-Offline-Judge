@@ -4,8 +4,8 @@ import shutil
 import subprocess
 import resource
 
-from .Unit import Unit
 from ..lang import Language
+from ..util.unit import Unit
 
 STDIN = io.TextIOWrapper(io.BytesIO())
 STDOUT = io.TextIOWrapper(io.BytesIO())
