@@ -1,16 +1,5 @@
-import os
-from types import LambdaType
-from .Unit import MB, SECOND
-
-class ShellCommand(str):
-    pass
-
-class Language:
-    CODE = os.PathLike
-    COMPILE = ShellCommand
-    EXECUTE = ShellCommand
-    timelimit = LambdaType
-    memlimit = LambdaType
+from ..Unit import MB, SECOND
+from .Language import Language
 
 class Python3(Language):
     CODE = 'Main.py'
