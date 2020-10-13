@@ -2,7 +2,13 @@ import io
 import os
 import shutil
 import subprocess
-import resource
+
+try:
+    import resource
+except:
+    does_support_resource = False
+else:
+    does_support_resource = True
 
 from ..lang import Language
 from ..util.unit import Unit
@@ -31,9 +37,12 @@ def __task(language:Language, stdin_data:str, stdout_data:str, timelimit:Unit.Se
     timelimit = language.timelimit(timelimit) if allow_handicap else timelimit
     memlimit = language.memlimit(memlimit) if allow_handicap else memlimit
     # 메모리 제한
-    softlimit = memlimit
-    hardlimit = resource.RLIM_INFINITY
-    preexec = lambda: resource.setrlimit(resource.RLIMIT_AS, (softlimit, hardlimit))
+    if does_support_resource:
+        softlimit = memlimit
+        hardlimit = resource.RLIM_INFINITY
+        preexec = lambda: resource.setrlimit(resource.RLIMIT_AS, (softlimit, hardlimit))
+    else:
+        preexec = lambda: None
     # 프로세스 열기
     proc = subprocess.Popen(language.COMPILE,
                             shell=True,
