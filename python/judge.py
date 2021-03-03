@@ -6,6 +6,7 @@ import time
 
 from . import lang
 from . import config
+from . import util
 
 
 __CONFIG_TMP_DIRECTORY: str = config.from_json('tmp.directory')
@@ -16,13 +17,6 @@ __CONFIG_RESULT_INCLUDES_DATAPATH: bool = config.from_json("result.include.datap
 __CONFIG_DATA_IN_PATH_PATTERN: str = config.from_json("data.in.path.pattern")
 __CONFIG_DATA_OUT_PATH_PATTERN: str = config.from_json("data.out.path.pattern")
 
-class Unit:
-    class ms(int):
-        pass
-
-    class KB(int):
-        pass
-
 
 class TimeRecorder:
     STACK = [time.time()]
@@ -32,7 +26,7 @@ class TimeRecorder:
         cls.STACK.append(time.time())
 
     @classmethod
-    def pop(cls) -> Unit.ms:
+    def pop(cls) -> util.units.ms:
         if len(cls.STACK) == 1:
             return -1
         else:
