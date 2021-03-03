@@ -1,7 +1,7 @@
 import json
 import os
 
-__CONFIG_FILE:os.PathLike = os.path.join(os.getcwd(), 'config.json')
+__CONFIG_FILE = 'config.json'
 __CONFIG:dict = {}
 
 
