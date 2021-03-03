@@ -1,6 +1,7 @@
 import argparse
 
 from . import judge
+from . import util
 
 parser = argparse.ArgumentParser(
     'Baekjoon Offline Judge <짭준 오프라인 저지> :: 당신의 채점 결과를 예측해 드립니다.',
@@ -19,7 +20,7 @@ if True:
     print('[INFO]', '                                                      ')
     print('================================================================')
     print('[INFO]', '선택된 파일:                                          ')
-    print('[INFO]',f' -> "{args.src}"'                                      )
+    print('[INFO]',f' -> "{util.shorten_path(args.src)}"'                   )
     print('[INFO]', '                                                      ')
     
     print('[INFO]', '채점 준비중...                              ', end='\r')

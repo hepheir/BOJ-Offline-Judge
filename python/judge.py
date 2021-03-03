@@ -96,5 +96,5 @@ def judge_testcase(testcase: TestCase):
             result += f'\t{TimeRecorder.pop():6d}'
 
         if __CONFIG_RESULT_INCLUDES_DATAPATH:
-            result += f'\t{testcase.input_file}'
+            result += f'\t{util.shorten_path(testcase.input_file)}'
     return result
