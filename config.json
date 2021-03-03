@@ -1,0 +1,14 @@
+{
+    "data.in.path.pattern": "{srcDirname}\\data\\**\\*.in",
+    "data.out.path.pattern": "{srcDirname}\\data\\**\\*.out",
+
+    "tmp.directory": "tmp",
+
+    "timelimit.ms": 10000,
+
+    "result.include.time": true,
+    "result.include.datapath": true,
+
+    "cpp.compiler.path": "c:\\MinGW\\bin\\g++.exe",
+    "c.compiler.path": "c:\\MinGW\\bin\\gcc.exe"
+}
