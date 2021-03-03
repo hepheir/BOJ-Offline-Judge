@@ -1,7 +1,11 @@
 import json
 import os
 
-__CONFIG_FILE = 'config.json'
+
+from boj.util import PACKAGE_ROOT
+
+
+__CONFIG_FILE = os.path.join(PACKAGE_ROOT, 'config.json')
 __CONFIG:dict = {}
 
 
