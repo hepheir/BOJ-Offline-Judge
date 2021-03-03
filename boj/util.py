@@ -6,11 +6,8 @@ TMP_DIRECTORY = os.path.join(PACKAGE_ROOT, 'tmp')
 
 
 class units:
-    class ms(int):
-        pass
-
-    class KB(int):
-        pass
+    class ms(int): pass
+    class KB(int): pass
 
 
 def shorten_path(path:str):
