@@ -1,4 +1,7 @@
 import os
+import sys
+
+PACKAGE_ROOT = os.path.dirname(sys.modules['boj'].__file__)
 
 
 class units:
