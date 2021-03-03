@@ -13,5 +13,6 @@ class units:
 
 
 def shorten_path(path:str):
-    common_path = os.path.commonpath([path, os.getcwd()])
-    return path.replace(common_path, "")
+    abspath = os.path.abspath(path)
+    common_path = os.path.commonpath([abspath, os.getcwd()])
+    return abspath.replace(common_path, "")
