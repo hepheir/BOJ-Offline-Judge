@@ -19,7 +19,7 @@ if True:
     print('[INFO]', '                                                      ')
     print('================================================================')
     print('[INFO]', '선택된 파일:                                          ')
-    print('[INFO]', ' -> "{}"' % (args.src)                                 )
+    print('[INFO]',f' -> "{args.src}"'                                      )
     print('[INFO]', '                                                      ')
     
     print('[INFO]', '채점 준비중...                              ', end='\r')
