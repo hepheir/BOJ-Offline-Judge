@@ -1,7 +1,7 @@
 import argparse
 
-from . import judge
-from . import util
+from boj import judge
+from boj import util
 
 parser = argparse.ArgumentParser(
     'Baekjoon Offline Judge <짭준 오프라인 저지> :: 당신의 채점 결과를 예측해 드립니다.',

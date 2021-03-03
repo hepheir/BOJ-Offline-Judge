@@ -4,9 +4,9 @@ import shutil
 import subprocess
 import time
 
-from . import lang
-from . import config
-from . import util
+from boj import config
+from boj import lang
+from boj import util
 
 
 __CONFIG_TMP_DIRECTORY: str = config.from_json('tmp.directory')
