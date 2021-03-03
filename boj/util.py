@@ -9,6 +9,6 @@ class units:
         pass
 
 
-def shorten_path(path:os.PathLike):
+def shorten_path(path:str):
     common_path = os.path.commonpath([path, os.getcwd()])
     return path.replace(common_path, "")
