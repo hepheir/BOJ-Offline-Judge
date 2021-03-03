@@ -9,7 +9,6 @@ from boj import lang
 from boj import util
 
 
-__CONFIG_TMP_DIRECTORY: str = config.from_json('tmp.directory')
 __CONFIG_TIMEOUT: float = config.from_json("timelimit.ms") / 1000
 __CONFIG_RESULT_INCLUDES_TIME: bool = config.from_json("result.include.time")
 __CONFIG_RESULT_INCLUDES_DATAPATH: bool = config.from_json("result.include.datapath")
@@ -57,13 +56,13 @@ def load_testcases(src: os.PathLike):
 
 def compile(src: os.PathLike):
     language = lang.detect_language(src)
-    backup_src = os.path.join(__CONFIG_TMP_DIRECTORY, language.EXTENSION)
+    backup_src = os.path.join(util.TMP_DIRECTORY, language.EXTENSION)
     shutil.copyfile(src, backup_src)
     subprocess.run(language.COMPILE, check=True)
 
 def judge_testcase(testcase: TestCase):
     verdict = ''
-    user_output_file = os.path.join(__CONFIG_TMP_DIRECTORY, '.stdout')
+    user_output_file = os.path.join(util.TMP_DIRECTORY, '.stdout')
     try:
         TimeRecorder.check()
         subprocess.run(
