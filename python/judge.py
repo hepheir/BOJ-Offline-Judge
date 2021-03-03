@@ -93,7 +93,7 @@ def judge_testcase(testcase: TestCase):
         result = f'{verdict:10s}'
 
         if __CONFIG_RESULT_INCLUDES_TIME:
-            result += f'\t{TimeRecorder.pop():6d}'
+            result += f'\t{TimeRecorder.pop():>7d} ms'
 
         if __CONFIG_RESULT_INCLUDES_DATAPATH:
             result += f'\t{util.shorten_path(testcase.input_file)}'

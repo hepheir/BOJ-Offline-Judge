@@ -13,20 +13,16 @@ args = parser.parse_args()
 
 if True:
     print('================================================================')
-    print('[INFO]', '                                                      ')
-    print('[INFO]', ':: Baekjoon Offline Judge ::                          ')
-    print('[INFO]', '* 짭준 오프라인 저지.                                 ')
-    print('[INFO]', '  당신의 채점 결과를 예측해 드립니다.                 ')
-    print('[INFO]', '                                                      ')
+    print('                 :: BOJ. Offline Judge ::                       ')
+    print('                  * 짭준 오프라인 저지 *                        ')
+    print('            당신의 채점 결과를 예측해 드립니다.                 ')
     print('================================================================')
-    print('[INFO]', '선택된 파일:                                          ')
-    print('[INFO]',f' -> "{util.shorten_path(args.src)}"'                   )
-    print('[INFO]', '                                                      ')
-    
-    print('[INFO]', '채점 준비중...                              ', end='\r')
+    print('[INFO]',f'선택된 파일: "{util.shorten_path(args.src)}"'          )
+    print('----------------------------------------------------------------')    
+    print('[INFO]', '채점 준비중...                                        ')
     testcases_iterator = judge.load_testcases(args.src)
 
-    print('[INFO]', '컴파일 중...                                ', end='\r')
+    print('[INFO]', '컴파일 중...                                          ')
 try:
     judge.compile(args.src)
 except BaseException as error:
@@ -40,7 +36,6 @@ else:
 for testcase in testcases_iterator:
     print('[INFO]', '채점 중...                                  ', end='\r')
     print('[INFO]', judge.judge_testcase(testcase)                          )
-    print('[INFO]', '                                                      ')
 
 if True:
     print('================================================================')
