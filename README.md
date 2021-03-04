@@ -1,11 +1,31 @@
-# 짭준 오프라인 저지
+# BOJ 오프라인 저지
 
 당신의 채점 결과를 예측해드립니다.
 
-## 실행
+## 사용 방법
 
-```shell
-python -m python.index <source_file>
+### 1. 데이터 셋 준비
+
+작성한 소스코드와 같거나 하위 폴더내에 `.in`, `.out`으로 끝나는 채점 데이터 파일을 준비해주세요.
+
+예시:
+```
+problem
+└── source.py # 채점할 소스
+  └── data
+    ├── boj
+    │ └── sample
+    │   ├── 1.in  # 데이터 셋 1
+    │   └── 1.out # 데이터 셋 1
+    │
+    ├── 1.in  # 데이터 셋 2
+    └── 1.out # 데이터 셋 2
+```
+
+### 2. 간채점기 실행
+
+```bash
+python -m boj "채점 소스코드"
 ```
 
 ## 요구 사항
@@ -14,37 +34,9 @@ python -m python.index <source_file>
 
 * **사용하고자 하는 언어의 컴파일러** (설치된 경로를 `config.json`안에 적절하게 입력해주세요)
 
-## Git 레포지토리에 설치
 
-```bash
-git submodule add https://github.com/Hepheir/BOJ-Offline-Judge
-```
+## 버젼 형식 안내
 
-## Visual Studio Code 편의성
+버젼은 다음 형식에 따라 붙여집니다.
 
-`.vscode/tasks.json`에 다음 항목을 추가하여 더욱 편리하게 사용할 수 있습니다.
-
-```json
-        {
-            "type": "shell",
-            "label": "[BOJ-Offline-Judge] 짭준 오프라인 저지 :: 현재 소스코드 간채점",
-            "options": {
-                "cwd": "${workspaceFolder}/BOJ-Offline-Judge"
-            },
-            "command": "python",
-            "windows": {
-                "command": "C:\\Program Files\\Python\\Python39\\python.exe",
-            },
-            "args": [
-                "-m",
-                "python.index",
-                "${file}"
-            ],
-            "group": {
-                "kind": "test",
-                "isDefault": true
-            }
-        }
-```
-
-채점할 소스코드를 열고 VS Code 내장 기능인 `run task`로 짭준을 호출합니다.
+[![](https://digitalcommunications.wp.st-andrews.ac.uk/files/2017/01/semver03.png)](https://digitalcommunications.wp.st-andrews.ac.uk/2017/03/17/what-our-version-numbers-mean/)
