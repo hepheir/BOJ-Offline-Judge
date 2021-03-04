@@ -1,6 +1,41 @@
+<!-- Badges -->
+
+[![PyPI/version]][PyPI/package]
+[![PyPI/license]][PyPI/package]
+[![PyPI/downloads]][PyPI/package]
+[![PyPI/status]][PyPI/package]
+[![GitHub/issues]][GitHub/repo]
+
+[PyPI/package]: https://pypi.org/project/boj/
+[PyPI/python]: https://img.shields.io/pypi/pyversions/boj
+[PyPI/version]: https://img.shields.io/pypi/v/boj
+[PyPI/downloads]: https://img.shields.io/pypi/dm/boj
+[PyPI/license]: https://img.shields.io/pypi/l/boj
+[PyPI/status]: https://img.shields.io/pypi/status/boj
+
+[GitHub/repo]: https://github.com/Hepheir/BOJ-Offline-Judge
+[GitHub/stars]: https://img.shields.io/github/stars/Hepheir/BOJ-Offline-Judge.svg
+[GitHub/issues]: https://img.shields.io/github/issues/Hepheir/BOJ-Offline-Judge.svg
+
+
 # BOJ 오프라인 저지
 
 당신의 채점 결과를 예측해드립니다.
+
+
+## 요구 사항
+
+* **Python 3.7^** (외부 라이브러리는 사용되지 않았음)
+
+* **사용하고자 하는 언어의 컴파일러** (설치된 경로를 `config.json`안에 적절하게 입력해주세요)
+
+
+## 지원 언어
+
+* Python3
+* C++
+
+---
 
 ## 사용 방법
 
@@ -10,16 +45,21 @@
 
 예시:
 ```
-problem
+problem # 문제 별 폴더
+├── data
+│ ├── boj
+│ │ ├── sample
+│ │ │ ├── 1.in  # 데이터 셋 1
+│ │ │ └── 1.out # 데이터 셋 1
+│ │ │
+│ │ └── hepheir
+│ │   ├── 1.in  # 데이터 셋 2
+│ │   └── 1.out # 데이터 셋 2
+│ │
+│ ├── a.in  # 데이터 셋 3
+│ └── a.out # 데이터 셋 3
+│
 └── source.py # 채점할 소스
-  └── data
-    ├── boj
-    │ └── sample
-    │   ├── 1.in  # 데이터 셋 1
-    │   └── 1.out # 데이터 셋 1
-    │
-    ├── 1.in  # 데이터 셋 2
-    └── 1.out # 데이터 셋 2
 ```
 
 ### 2. 간채점기 실행
@@ -28,11 +68,13 @@ problem
 python -m boj "채점 소스코드"
 ```
 
-## 요구 사항
+---
 
-* **Python 3.9** (외부 라이브러리는 사용되지 않았음)
+## 계획
 
-* **사용하고자 하는 언어의 컴파일러** (설치된 경로를 `config.json`안에 적절하게 입력해주세요)
+- 더 많은 언어 지원
+- 메모리 사용량 측정
+- 문제별 시간/메모리 상한선 설정
 
 
 ## 버젼 형식 안내
