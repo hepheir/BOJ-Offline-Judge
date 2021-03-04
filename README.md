@@ -1,3 +1,23 @@
+<!-- Badges -->
+
+[![PyPI/version]][PyPI/package]
+[![PyPI/license]][PyPI/package]
+[![PyPI/downloads]][PyPI/package]
+[![PyPI/status]][PyPI/package]
+[![GitHub/issues]][GitHub/repo]
+
+[PyPI/package]: https://pypi.org/project/boj/
+[PyPI/python]: https://img.shields.io/pypi/pyversions/boj
+[PyPI/version]: https://img.shields.io/pypi/v/boj
+[PyPI/downloads]: https://img.shields.io/pypi/dm/boj
+[PyPI/license]: https://img.shields.io/pypi/l/boj
+[PyPI/status]: https://img.shields.io/pypi/status/boj
+
+[GitHub/repo]: https://github.com/Hepheir/BOJ-Offline-Judge
+[GitHub/stars]: https://img.shields.io/github/stars/Hepheir/BOJ-Offline-Judge.svg
+[GitHub/issues]: https://img.shields.io/github/issues/Hepheir/BOJ-Offline-Judge.svg
+
+
 # BOJ 오프라인 저지
 
 당신의 채점 결과를 예측해드립니다.
