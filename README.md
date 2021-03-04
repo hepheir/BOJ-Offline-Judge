@@ -33,3 +33,10 @@ python -m boj "채점 소스코드"
 * **Python 3.9** (외부 라이브러리는 사용되지 않았음)
 
 * **사용하고자 하는 언어의 컴파일러** (설치된 경로를 `config.json`안에 적절하게 입력해주세요)
+
+
+## 버젼 형식 안내
+
+버젼은 다음 형식에 따라 붙여집니다.
+
+[![](https://digitalcommunications.wp.st-andrews.ac.uk/files/2017/01/semver03.png)](https://digitalcommunications.wp.st-andrews.ac.uk/2017/03/17/what-our-version-numbers-mean/)
