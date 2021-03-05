@@ -13,13 +13,15 @@ def shorten_path(path: pathlib.Path):
     return abspath.replace(os.path.commonpath([abspath, os.getcwd()]), "")
 
 
-def temp_filename(file: pathlib.Path):
+def temp_filename(file: pathlib.Path) -> pathlib.Path:
     ext = file.split('.')[-1]
     return os.path.join(TEMP_DIRECTORY, ext)
 
 
-def temp_makecopy(file: pathlib.Path):
-    shutil.copy(file, temp_filename(file))
+def temp_makecopy(file: pathlib.Path) -> pathlib.Path:
+    tempfile = temp_filename(file)
+    shutil.copy(file, tempfile)
+    return tempfile
 
 
 if not os.path.exists(TEMP_DIRECTORY):
