@@ -24,5 +24,10 @@ def temp_makecopy(file: pathlib.Path) -> pathlib.Path:
     return tempfile
 
 
+def temp_exists(file: pathlib.Path) -> bool:
+    tempfile = temp_filename(file)
+    return os.path.exists(tempfile)
+
+
 if not os.path.exists(TEMP_DIRECTORY):
     os.makedirs(TEMP_DIRECTORY)
