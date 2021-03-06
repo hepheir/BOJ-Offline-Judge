@@ -1,13 +1,9 @@
-import os
+from boj.util.path import temp_filename
+from boj.config import config
 
-from boj.util import TMP_DIRECTORY
-from boj.config import from_json
+__COMPILER = config.get('Languages', 'c', 'compilerPath')
+__EXECUTABLE_FILE = temp_filename('.exe')
 
 EXTENSION = '.cpp'
-
-__CONFIG_COMPILER_PATH = from_json('cpp.compiler.path')
-__SOURCE_FILE = os.path.join(TMP_DIRECTORY, EXTENSION)
-__EXECUTABLE_FILE = os.path.join(TMP_DIRECTORY, '.exe')
-
-COMPILE = [ __CONFIG_COMPILER_PATH, "-g", __SOURCE_FILE, "-o", __EXECUTABLE_FILE ]
+COMPILE = [ __COMPILER, "-g", "{src}", "-o", __EXECUTABLE_FILE ]
 RUN = [ __EXECUTABLE_FILE ]
