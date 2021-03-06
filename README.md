@@ -91,6 +91,7 @@ python -m boj judge "채점 소스코드"
 
 - **버그 수정**
 - **실행 방법 변경** (향후 기능 확장 고려)
-  | 변경 후 | `python -m boj judge source_file` |
-  | ------- | --------------------------------- |
-  | 변경 전 | `python -m boj source_file`       |
+
+| 변경 후 | `python -m boj judge source_file` |
+| ------- | --------------------------------- |
+| 변경 전 | `python -m boj source_file`       |
