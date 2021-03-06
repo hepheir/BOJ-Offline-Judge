@@ -1,39 +1,35 @@
 <!-- Badges -->
 
-[![PyPI/version]][PyPI/package]
-[![PyPI/license]][PyPI/package]
-[![PyPI/downloads]][PyPI/package]
-[![PyPI/status]][PyPI/package]
-[![GitHub/issues]][GitHub/repo]
+[![PyPI/version]][pypi/package]
+[![PyPI/license]][pypi/package]
+[![PyPI/downloads]][pypi/package]
+[![PyPI/status]][pypi/package]
+[![GitHub/issues]][github/repo]
 
-[PyPI/package]: https://pypi.org/project/boj/
-[PyPI/python]: https://img.shields.io/pypi/pyversions/boj
-[PyPI/version]: https://img.shields.io/pypi/v/boj
-[PyPI/downloads]: https://img.shields.io/pypi/dm/boj
-[PyPI/license]: https://img.shields.io/pypi/l/boj
-[PyPI/status]: https://img.shields.io/pypi/status/boj
-
-[GitHub/repo]: https://github.com/Hepheir/BOJ-Offline-Judge
-[GitHub/stars]: https://img.shields.io/github/stars/Hepheir/BOJ-Offline-Judge.svg
-[GitHub/issues]: https://img.shields.io/github/issues/Hepheir/BOJ-Offline-Judge.svg
-
+[pypi/package]: https://pypi.org/project/boj/
+[pypi/python]: https://img.shields.io/pypi/pyversions/boj
+[pypi/version]: https://img.shields.io/pypi/v/boj
+[pypi/downloads]: https://img.shields.io/pypi/dm/boj
+[pypi/license]: https://img.shields.io/pypi/l/boj
+[pypi/status]: https://img.shields.io/pypi/status/boj
+[github/repo]: https://github.com/Hepheir/BOJ-Offline-Judge
+[github/stars]: https://img.shields.io/github/stars/Hepheir/BOJ-Offline-Judge.svg
+[github/issues]: https://img.shields.io/github/issues/Hepheir/BOJ-Offline-Judge.svg
 
 # BOJ 오프라인 저지
 
 당신의 채점 결과를 예측해드립니다.
 
-
 ## 요구 사항
 
-* **Python 3.7^** (외부 라이브러리는 사용되지 않았음)
+- **Python 3.7^** (외부 라이브러리는 사용되지 않았음)
 
-* **사용하고자 하는 언어의 컴파일러** (설치된 경로를 `config.json`안에 적절하게 입력해주세요)
-
+- **사용하고자 하는 언어의 컴파일러** (설치된 경로를 `config.json`안에 적절하게 입력해주세요)
 
 ## 지원 언어
 
-* Python3
-* C++
+- Python3
+- C++
 
 ---
 
@@ -44,6 +40,7 @@
 작성한 소스코드와 같거나 하위 폴더내에 `.in`, `.out`으로 끝나는 채점 데이터 파일을 준비해주세요.
 
 예시:
+
 ```
 problem # 문제 별 폴더
 ├── data
@@ -76,9 +73,24 @@ python -m boj "채점 소스코드"
 - 메모리 사용량 측정
 - 문제별 시간/메모리 상한선 설정
 
-
 ## 버젼 형식 안내
 
 버젼은 다음 형식에 따라 붙여집니다.
 
 [![](https://digitalcommunications.wp.st-andrews.ac.uk/files/2017/01/semver03.png)](https://digitalcommunications.wp.st-andrews.ac.uk/2017/03/17/what-our-version-numbers-mean/)
+
+---
+
+## 업데이트 로그
+
+### 1.0.0
+
+- 간채점기 배포 시작
+
+### 1.0.1
+
+- **버그 수정**
+- **실행 방법 변경** (향후 기능 확장 고려)
+  | 변경 후 | `python -m boj judge source_file` |
+  | ------- | --------------------------------- |
+  | 변경 전 | `python -m boj source_file`       |

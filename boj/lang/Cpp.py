@@ -1,13 +1,18 @@
-import os
+import typing
 
-from boj.util import TMP_DIRECTORY
-from boj.config import from_json
+from boj.config import config
+from boj.lang import BaseLanguage
+from boj.util import temp_filename
 
-EXTENSION = '.cpp'
+__COMPILER = config['language']['cpp.compilerPath']
+__EXECUTABLE_FILE = temp_filename('.exe')
 
-__CONFIG_COMPILER_PATH = from_json('cpp.compiler.path')
-__SOURCE_FILE = os.path.join(TMP_DIRECTORY, EXTENSION)
-__EXECUTABLE_FILE = os.path.join(TMP_DIRECTORY, '.exe')
 
-COMPILE = [ __CONFIG_COMPILER_PATH, "-g", __SOURCE_FILE, "-o", __EXECUTABLE_FILE ]
-RUN = [ __EXECUTABLE_FILE ]
+class Cpp(BaseLanguage):
+    EXTENSION = '.cpp'
+
+    def compile(src, *args, **kwargs) -> typing.List[str]:
+        return [__COMPILER, "-g", src, "-o", __EXECUTABLE_FILE]
+
+    def run(*args, **kwargs) -> typing.List[str]:
+        return [__EXECUTABLE_FILE]

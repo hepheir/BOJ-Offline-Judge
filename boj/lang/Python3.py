@@ -1,10 +1,16 @@
-import os
+import pathlib
+import typing
 
-from boj import util
+from boj.lang import BaseLanguage
 
-EXTENSION = '.py'
 
-__SOURCE_FILE = os.path.join(util.TMP_DIRECTORY, EXTENSION).replace('\\', '/')
+class Python3(BaseLanguage):
+    EXTENSION = '.py'
 
-COMPILE = [ "python3", "-c", f"import py_compile; py_compile.compile('{__SOURCE_FILE}')" ]
-RUN = [ "python3", __SOURCE_FILE ]
+    def compile(src:pathlib.Path, *args, **kwargs) -> typing.List[str]:
+        src = src.replace('\\','/')
+        return [ "python3", "-c", f"import py_compile; py_compile.compile('{src}')" ]
+
+    def run(src:pathlib.Path, *args, **kwargs) -> typing.List[str]:
+        src = src.replace('\\','/')
+        return [ "python3", src ]
