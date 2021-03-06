@@ -62,7 +62,7 @@ problem # 문제 별 폴더
 ### 2. 간채점기 실행
 
 ```bash
-python -m boj "채점 소스코드"
+python -m boj judge "채점 소스코드"
 ```
 
 ---
