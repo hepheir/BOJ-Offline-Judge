@@ -1,4 +1,3 @@
-from boj.util import TMP_DIRECTORY
 import pathlib
 import os
 import shutil
