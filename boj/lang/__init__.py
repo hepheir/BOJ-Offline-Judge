@@ -1,8 +1,7 @@
 import os
 import typing
 
-from . import Cpp
-from . import Python3
+from boj.lang import Cpp, Python3
 
 
 AVAILABLE_LANGUAGES = [Cpp, Python3]
