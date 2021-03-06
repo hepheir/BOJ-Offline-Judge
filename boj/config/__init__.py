@@ -19,7 +19,7 @@ config['Judge'] = {
     "briefDatapath": True,
 }
 
-config['language'] = {
+config['Languages'] = {
     "c": {
         "compilerPath": "c:\\MinGW\\bin\\gcc.exe" # use "gcc" if Linux
     },
