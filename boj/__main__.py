@@ -2,7 +2,6 @@ import argparse
 import pathlib
 import textwrap
 
-from boj.judge import action
 
 parser = argparse.ArgumentParser(
     prog=textwrap.dedent('''
@@ -16,12 +15,18 @@ parser = argparse.ArgumentParser(
         제작자: Hepheir (hepheir@gmail.com)
         깃허브: https://github.com/Hepheir/BOJ-Offline-Judge
     '''),
-    usage='<command>')
-subparsers = parser.add_subparsers()
+    usage='python -m boj <command>')
 
-judge = subparsers.add_parser(name='judge', help='채점과 관련된 작업')
-judge.add_argument('src', type=pathlib.Path, help='채점할 소스코드')
-judge.set_defaults(func=action)
+parser.add_argument('command', help='수행할 작업', choices=['judge'])
 
-args = parser.parse_args()
-args.func(args)
+args, sub_args = parser.parse_known_args()
+
+
+if args.command == 'judge':
+    from boj.judge import action
+
+    parser = argparse.ArgumentParser(usage='python -m boj judge <source_file>')
+    parser.add_argument('src', type=pathlib.Path, help='채점할 소스코드')
+
+    args = parser.parse_args(sub_args)
+    action(args)

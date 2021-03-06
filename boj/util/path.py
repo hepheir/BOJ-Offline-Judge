@@ -4,7 +4,7 @@ import shutil
 
 from boj.config import config
 
-TEMP_DIRECTORY = config.get('Paths', 'tempDirectory')
+TEMP_DIRECTORY = config['path']['tempDirectory']
 
 
 def shorten_path(path: pathlib.Path):
@@ -13,7 +13,7 @@ def shorten_path(path: pathlib.Path):
 
 
 def temp_filename(file: pathlib.Path) -> pathlib.Path:
-    ext = file.split('.')[-1]
+    ext = '.'+str(file).split('.')[-1]
     return os.path.join(TEMP_DIRECTORY, ext)
 
 

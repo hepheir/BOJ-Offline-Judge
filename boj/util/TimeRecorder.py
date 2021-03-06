@@ -16,7 +16,6 @@ class TimeRecorder:
     STACK: typing.List[ms] = [now()]
 
     @classmethod
-    @classmethod
     def push(cls, time: ms):
         cls.STACK.append(time)
 

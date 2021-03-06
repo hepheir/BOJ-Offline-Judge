@@ -2,8 +2,8 @@ import subprocess
 
 from boj.config import config
 from boj.judge.Testcase import TestCase
-from boj.util.path import temp_filename, shorten_path
-from boj.util.TimeRecorder import TimeRecorder
+from boj.util import TimeRecorder, temp_filename, shorten_path
+
 
 def judge_testcase(testcase: TestCase):
     user_output_file = temp_filename('.stdout')
@@ -11,10 +11,10 @@ def judge_testcase(testcase: TestCase):
     try:
         TimeRecorder.check()
         subprocess.run(
-            testcase.language.RUN,
+            testcase.language.run(testcase.source_file),
             stdin=open(testcase.input_file, 'r'),
             stdout=open(user_output_file, 'w'),
-            timeout=config.get('Judge', 'defaultTimeLimit') / 1000,
+            timeout=float(config['judge']['defaultTimeLimit']) / 1000,
             check=True)
         TimeRecorder.check()
     except subprocess.CalledProcessError:
@@ -35,8 +35,8 @@ def judge_testcase(testcase: TestCase):
             verdict = '틀렸습니다'
     finally:
         result = f'{verdict:10s}'
-        if config.get('Judge', 'briefTime'):
+        if config['judge']['briefTime']:
             result += f'\t{TimeRecorder.pop():>7d} ms'
-        if config.get('Judge', 'briefDatapath'):
+        if config['judge']['briefDatapath']:
             result += f'\t{shorten_path(testcase.input_file)}'
     return result
