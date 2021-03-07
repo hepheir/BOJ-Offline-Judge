@@ -68,6 +68,43 @@ python -m boj.judge "채점 소스코드"
 * 만약 잘 실행이 되지 않는다면, 파이썬 혹은 컴파일러 경로가 올바르지 않아서 오류가 발생하는 것일 가능성이 높습니다. `.boj/config.ini` 에서 잘못된 정보가 있는지 확인해주세요.
 
 
+### 3. Visual Studio Code
+
+<kbd>Ctrl</kbd>+<kbd>P</kbd>를 누른 뒤, `> Tasks: Configure Tasks`, `Others` 를 선택하면 나오는 `.vscode/tasks.json` 파일에서 다음과 같은 작업을 등록하여 간채점 과정을 더욱 편리하게 할 수 있습니다.
+
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "[BOJ Offline Judge] 현재 열린 파일 간채점",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "-m",
+                "boj.judge",
+                "${file}"
+            ],
+            "group": "test"
+        }
+    ]
+}
+```
+
+등록된 작업은 [ <kbd>Ctrl</kbd>+<kbd>P</kbd> ] [`> Preferences: Open Keyboard Shortcuts (JSON)`] 에서 다음과 같이 설정하여 빠르게 호출 할 수 있습니다.
+
+```json
+[
+    
+    {
+        "key": "f10", // F10 키를 눌러 작업 시행
+        "command": "workbench.action.tasks.runTask"
+    }
+]
+```
+
 ## 업데이트 로그
 
 ### 1.0.0
