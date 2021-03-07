@@ -2,28 +2,28 @@ import collections
 import glob
 import os
 import pathlib
-import typing
 
 from boj.config import config
 
 
 class Problem:
-    def __init__(self):
+    def __init__(self, source_file:pathlib.Path):
         self.queue = collections.deque()
-        self.load_data()
+        self.load_data(source_file)
 
 
-    def load_data(self, source:pathlib.Path):
-        config_inputFileExt = config.get('path', 'inputFilieExt', fallback='.in')
-        config_outputFileExt = config.get('path', 'outputFileExt', fallback='.out')
-        config_dataDirname = config.get('path', 'outputFileExt', fallback='%(srcDirname)', vars={
-            'src': source,
-            'srcDirname': os.path.dirname(source),
+    def load_data(self, source_file:pathlib.Path):
+        config_inputFileExt = config.get('user', 'data.extension.inputfile')
+        config_outputFileExt = config.get('user', 'data.extension.outputfile')
+        config_dataDirname = config.get('user', 'data.dirname', vars={
+            'src': source_file,
+            'srcDirname': os.path.dirname(source_file),
         })
-        input_files = glob.glob(os.path.join(config_dataDirname, '**', '*'+config_inputFileExt), recursive=True)
-        output_files = glob.glob(os.path.join(config_dataDirname, '**', '*'+config_outputFileExt), recursive=True)
+        # 파일명 패턴 생성
+        inputFilePattern = os.path.join(config_dataDirname, '**', '*'+config_inputFileExt)
+        outputFilePattern = os.path.join(config_dataDirname, '**', '*'+config_outputFileExt)
+        # 생성된 패턴을 이용하여 파일 목록 불러오기
+        input_files = glob.glob(inputFilePattern, recursive=True)
+        output_files = glob.glob(outputFilePattern, recursive=True)
+        # 큐에 파일 목록을 삽입
         self.queue.extend(zip(input_files, output_files))
-
-        
-    def get_dataset_from_queue(self) -> typing.Tuple[pathlib.Path, pathlib.Path]:
-        return self.queue.popleft()

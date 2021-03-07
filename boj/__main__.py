@@ -6,6 +6,7 @@ import textwrap
 parser = argparse.ArgumentParser(
     prog=textwrap.dedent('''
         Baekjoon Offline Judge :: 당신의 채점 결과를 예측해 드립니다.
+        ================================================================
     '''),
     formatter_class=argparse.RawDescriptionHelpFormatter,
     epilog=textwrap.dedent('''
@@ -15,7 +16,7 @@ parser = argparse.ArgumentParser(
         제작자: Hepheir (hepheir@gmail.com)
         깃허브: https://github.com/Hepheir/BOJ-Offline-Judge
     '''),
-    usage='python -m boj <command>')
+    usage='[ python -m boj <command> ] or [ python -m boj.judge <source_file> ]')
 
 parser.add_argument('command', help='수행할 작업', choices=['judge'])
 
