@@ -6,7 +6,7 @@ import pathlib
 from boj.config import config
 
 
-class Problem:
+class DatasetQueue:
     def __init__(self, source_file:pathlib.Path):
         self.queue = collections.deque()
         self.load_data(source_file)
@@ -15,9 +15,7 @@ class Problem:
     def load_data(self, source_file:pathlib.Path):
         config_inputFileExt = config.get('user', 'path.inputfile.ext')
         config_outputFileExt = config.get('user', 'path.outputfile.ext')
-        config_dataDirname = config.get('user', 'path.problem.dirname', vars={
-            'problemDirname': os.path.dirname(source_file),
-        })
+        config_dataDirname = os.path.dirname(source_file)
         # 파일명 패턴 생성
         inputFilePattern = os.path.join(config_dataDirname, '**', '*'+config_inputFileExt)
         outputFilePattern = os.path.join(config_dataDirname, '**', '*'+config_outputFileExt)

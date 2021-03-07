@@ -15,10 +15,10 @@ config['DEFAULT'] = {
 
     'path.temp.dirname': os.path.join('%(path.settings.dirname)s', 'temp'),
     'path.temp.stdout.filename': os.path.join('%(path.temp.dirname)s', 'stdout.txt'),
-    'path.problem.dirname': '%(problemDirname)s',
+    'path.problem.dirname': os.path.join('problem', '%(problem.number)s %(problem.title)s'),
     'path.inputfile.ext': '.in',
     'path.outputfile.ext': '.out',
-    'path.data.boj.sample.dirname': os.path.join('%(problemDirname)s', 'data', 'boj', 'sample'),
+    'path.data.boj.sample.dirname': os.path.join('%(path.problem.dirname)s', 'data', 'boj', 'sample'),
     
     'judge.run.timelimit': 4000,
     'judge.brief.time': True,

@@ -18,7 +18,7 @@ parser = argparse.ArgumentParser(
     '''),
     usage='[ python -m boj <command> ] or [ python -m boj.judge <source_file> ]')
 
-parser.add_argument('command', help='수행할 작업', choices=['judge'])
+parser.add_argument('command', help='수행할 작업', choices=['judge', 'setup'])
 
 args, sub_args = parser.parse_known_args()
 
@@ -31,3 +31,9 @@ if args.command == 'judge':
 
     args = parser.parse_args(sub_args)
     action(args)
+
+elif args.command == 'setup':
+    from boj.core import Problem
+
+    problem = Problem(int(input('문제 번호: ')))
+    problem.make_sample_data_files()
