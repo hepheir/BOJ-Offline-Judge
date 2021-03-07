@@ -59,7 +59,7 @@ problem # 문제 별 폴더
 └── source.py # 채점할 소스
 ```
 
-### 2. 간채점기 실행
+### 2. 가채점기 실행
 
 ```bash
 python -m boj.judge "채점 소스코드"
@@ -70,7 +70,7 @@ python -m boj.judge "채점 소스코드"
 
 ### 3. Visual Studio Code
 
-<kbd>Ctrl</kbd>+<kbd>P</kbd>를 누른 뒤, `> Tasks: Configure Tasks`, `Others` 를 선택하면 나오는 `.vscode/tasks.json` 파일에서 다음과 같은 작업을 등록하여 간채점 과정을 더욱 편리하게 할 수 있습니다.
+<kbd>Ctrl</kbd>+<kbd>P</kbd>를 누른 뒤, `> Tasks: Configure Tasks`, `Others` 를 선택하면 나오는 `.vscode/tasks.json` 파일에서 다음과 같은 작업을 등록하여 가채점 과정을 더욱 편리하게 할 수 있습니다.
 
 ```json
 {
@@ -79,7 +79,7 @@ python -m boj.judge "채점 소스코드"
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "[BOJ Offline Judge] 현재 열린 파일 간채점",
+            "label": "[BOJ Offline Judge] 현재 열린 파일 가채점",
             "type": "shell",
             "command": "python",
             "args": [
@@ -109,7 +109,7 @@ python -m boj.judge "채점 소스코드"
 
 ### 1.0.0
 
-- 간채점기 배포 시작
+- 가채점기 배포 시작
 
 ### 1.0.1
 
