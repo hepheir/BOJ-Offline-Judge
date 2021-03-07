@@ -24,7 +24,7 @@
 
 - **Python 3.7^** (외부 라이브러리는 사용되지 않았음)
 
-- **사용하고자 하는 언어의 컴파일러** (설치된 경로를 `패키지설치경로/config/__init__.py`안에 적절하게 입력해주세요)
+- **사용하고자 하는 언어의 컴파일러** (설치된 경로를 `.boj/config.ini`안에 적절하게 입력해주세요)
 
 ## 지원 언어
 
@@ -37,9 +37,9 @@
 
 ### 1. 데이터 셋 준비
 
-작성한 소스코드와 같거나 하위 폴더내에 `.in`, `.out`으로 끝나는 채점 데이터 파일을 준비해주세요.
+작성한 소스코드와 같은 디렉토리 내에 `data` 폴더를 생성하고, `~~.in`, `~~.out`으로 끝나는 채점 데이터 파일을 준비해주세요.
 
-예시:
+**예시:**
 
 ```
 problem # 문제 별 폴더
@@ -62,24 +62,48 @@ problem # 문제 별 폴더
 ### 2. 간채점기 실행
 
 ```bash
-python -m boj judge "채점 소스코드"
+python -m boj.judge "채점 소스코드"
 ```
 
----
+* 만약 잘 실행이 되지 않는다면, 파이썬 혹은 컴파일러 경로가 올바르지 않아서 오류가 발생하는 것일 가능성이 높습니다. `.boj/config.ini` 에서 잘못된 정보가 있는지 확인해주세요.
 
-## 계획
 
-- 더 많은 언어 지원
-- 메모리 사용량 측정
-- 문제별 시간/메모리 상한선 설정
+### 3. Visual Studio Code
 
-## 버젼 형식 안내
+<kbd>Ctrl</kbd>+<kbd>P</kbd>를 누른 뒤, `> Tasks: Configure Tasks`, `Others` 를 선택하면 나오는 `.vscode/tasks.json` 파일에서 다음과 같은 작업을 등록하여 간채점 과정을 더욱 편리하게 할 수 있습니다.
 
-버젼은 다음 형식에 따라 붙여집니다.
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "[BOJ Offline Judge] 현재 열린 파일 간채점",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "-m",
+                "boj.judge",
+                "${file}"
+            ],
+            "group": "test"
+        }
+    ]
+}
+```
 
-[![](https://digitalcommunications.wp.st-andrews.ac.uk/files/2017/01/semver03.png)](https://digitalcommunications.wp.st-andrews.ac.uk/2017/03/17/what-our-version-numbers-mean/)
+등록된 작업은 [ <kbd>Ctrl</kbd>+<kbd>P</kbd> ] [`> Preferences: Open Keyboard Shortcuts (JSON)`] 에서 다음과 같이 설정하여 빠르게 호출 할 수 있습니다.
 
----
+```json
+[
+    
+    {
+        "key": "f10", // F10 키를 눌러 작업 시행
+        "command": "workbench.action.tasks.runTask"
+    }
+]
+```
 
 ## 업데이트 로그
 
@@ -95,3 +119,16 @@ python -m boj judge "채점 소스코드"
 | 변경 후 | `python -m boj judge source_file` |
 | ------- | --------------------------------- |
 | 변경 전 | `python -m boj source_file`       |
+
+### 1.0.2
+
+- **버그 수정**
+- **모듈 구조 변경 (리팩토링)**
+- **실행 방법 추가** : `python -m boj.judge source_file`
+
+
+## 향후 계획
+
+- 더 많은 언어 지원
+- ~~메모리 사용량 측정~~
+- 문제별 시간/~~메모리 상한선~~ 설정
