@@ -3,10 +3,8 @@ import pathlib
 import subprocess
 
 from boj.config import config
+from boj.core import DatasetQueue, Language
 from boj.util import shorten_path, TimeRecorder
-
-from boj.judge.Language import Language
-from boj.judge.Problem import Problem
 
 
 def action(args:argparse.Namespace):
@@ -20,7 +18,7 @@ def action(args:argparse.Namespace):
         print('[INFO]', '채점 준비중...                                        ')
 
         language = Language(source_file=sourcefile)
-        problem = Problem(source_file=sourcefile)
+        datasetQueue = DatasetQueue(source_file=sourcefile)
 
     #############################################################################
     # 컴파일
@@ -45,7 +43,7 @@ def action(args:argparse.Namespace):
         print('----------------------------------------------------------------')
         print('[INFO]', f'선택된 파일: "{shorten_path(sourcefile)}"            ')
         print('[INFO]',f'선택된 언어: {language.name}                          ')
-        print('[INFO]',f'{len(problem.queue)}개의 데이터 셋 로드 됨            ')
+        print('[INFO]',f'{len(datasetQueue.queue)}개의 데이터 셋 로드 됨            ')
         print('----------------------------------------------------------------')
 
     #############################################################################
@@ -53,11 +51,10 @@ def action(args:argparse.Namespace):
     #############################################################################
 
 
-    for input_file, output_file in problem.queue:
+    for input_file, output_file in datasetQueue.queue:
         print('[INFO]', '채점 중...                                  ', end='\r')
 
         verdict = ''
-        tempDirname = config.get('user', 'path.temp.dirname')
         stdoutFilename = config.get('user', 'path.temp.stdout.filename')
         try:
             TimeRecorder.check()
