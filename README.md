@@ -87,23 +87,14 @@ python -m boj.judge "채점 소스코드"
                 "boj.judge",
                 "${file}"
             ],
-            "group": "test"
+            "group": "build"
         }
     ]
 }
 ```
 
-등록된 작업은 [ <kbd>Ctrl</kbd>+<kbd>P</kbd> ] [`> Preferences: Open Keyboard Shortcuts (JSON)`] 에서 다음과 같이 설정하여 빠르게 호출 할 수 있습니다.
+등록된 작업은 [ <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> ] 에서 빠르게 호출 할 수 있습니다.
 
-```json
-[
-    
-    {
-        "key": "f10", // F10 키를 눌러 작업 시행
-        "command": "workbench.action.tasks.runTask"
-    }
-]
-```
 
 ## 업데이트 로그
 
@@ -125,6 +116,10 @@ python -m boj.judge "채점 소스코드"
 - **버그 수정**
 - **모듈 구조 변경 (리팩토링)**
 - **실행 방법 추가** : `python -m boj.judge source_file`
+
+### 1.1.0
+
+- **문제 폴더 구성기 추가**
 
 
 ## 향후 계획
