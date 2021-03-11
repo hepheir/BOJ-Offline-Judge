@@ -8,3 +8,5 @@ print('================================================================')
 import boj.config as config
 import boj.judge as judge
 import boj.util as util
+
+from boj.__version__ import __version__
