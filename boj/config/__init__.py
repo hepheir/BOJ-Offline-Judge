@@ -2,7 +2,7 @@ import configparser
 import os
 import sys
 
-VERSION = '1.0.2'
+VERSION = '1.1.1'
 SETTINGS_DIRECTORY =  os.path.join(os.getcwd(), '.boj')
 CONFIG_FILE = os.path.join(SETTINGS_DIRECTORY, 'config.ini')
 
