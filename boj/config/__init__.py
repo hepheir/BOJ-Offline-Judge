@@ -1,71 +1,49 @@
 import configparser
-import os
-import sys
+import os 
 
-VERSION = '1.1.1'
-SETTINGS_DIRECTORY =  os.path.join(os.getcwd(), '.boj')
+from boj.config.settings_directory import SETTINGS_DIRECTORY
+from boj.config.default_settings import DEFAULT_SETTINGS
+from boj.config.user_settings import USER_SETTINGS
+from boj.__version__ import __version__
+
+
+###############################################################
+
 CONFIG_FILE = os.path.join(SETTINGS_DIRECTORY, 'config.ini')
+
+print('[INFO]',f'설정 파일 "{CONFIG_FILE}"')
+print('----------------------------------------------------------------')
 
 config = configparser.ConfigParser()
 
-# DEFAULT SETTINGS
-config['DEFAULT'] = {
-    'version': VERSION,
-    'path.settings.dirname': SETTINGS_DIRECTORY,
-
-    'path.temp.dirname': os.path.join('%(path.settings.dirname)s', 'temp'),
-    'path.temp.stdout.filename': os.path.join('%(path.temp.dirname)s', 'stdout.txt'),
-    'path.problem.dirname': os.path.join('problem', '%(problem.number)s %(problem.title)s'),
-    'path.inputfile.ext': '.in',
-    'path.outputfile.ext': '.out',
-    'path.data.boj.sample.dirname': os.path.join('%(path.problem.dirname)s', 'data', 'boj', 'sample'),
-    
-    'judge.run.timelimit': 4000,
-    'judge.brief.time': True,
-    'judge.brief.inputfile': True,
-    
-    'language.cpp.compiler.path': 'g++',
-    'language.c.compiler.path': 'gcc',
-    'language.python3.python.path': sys.executable,
-}
-
-
-###############################################################
-# .boj 디렉토리 생성
-###############################################################
-if not os.path.exists(SETTINGS_DIRECTORY):
-    os.makedirs(SETTINGS_DIRECTORY)
-    # .gitignore 생성
-    with open(os.path.join(SETTINGS_DIRECTORY, '.gitignore'), 'w') as gitignore_file:
-        gitignore_file.write('*\n')
-    print('[INFO]',f'임시 디렉토리를 생성하였습니다: "{SETTINGS_DIRECTORY}"')
-
-
-###############################################################
-# 설정 파일 생성/불러오기
-###############################################################
-if not os.path.exists(CONFIG_FILE):
-    print('[INFO]', '설정 파일을 생성하고 있습니다...'                      )
-    config['user'] = {}
-else:
-    print('[INFO]', '설정 파일을 불러오고 있습니다...'                      )
+if os.path.isfile(CONFIG_FILE):
+    print('[INFO]', '설정 파일을 불러오고 있습니다...')
     config.read(CONFIG_FILE, encoding='utf-8')
+    
+    if config.get('user', 'version', fallback='<no_version>') != __version__:
+        print('[INFO]', '설정 파일을 업데이트 합니다.')
+        config['DEFAULT'] = DEFAULT_SETTINGS
+        # 기존 사용자 설정은 유지하며 새로운 항목 업데이트
+        for option, default_value in USER_SETTINGS.items():
+            config['user'][option] = config.get('user', option, fallback=default_value)
+        # 설정 파일 생성
+        with open(CONFIG_FILE, 'w') as config_file:
+            config.write(config_file)
+        print('[INFO]', '설정 파일 업데이트를 완료했습니다.')
+          
 
+elif os.path.exists(CONFIG_FILE):
+    print('[INFO]', '설정 파일을 생성하고 있습니다...')
+    config['DEFAULT'] = DEFAULT_SETTINGS
+    config['user'] = USER_SETTINGS
+    # 설정 파일 생성
+    with open(CONFIG_FILE, 'w') as config_file:
+        config.write(config_file)
+    print('[INFO]', '설정 파일 생성을 완료했습니다.')
 
-###############################################################
-# 설정 파일 업데이트
-###############################################################
-with open(CONFIG_FILE, 'w') as config_file:
-    config.write(config_file)
-    print('[INFO]',f'설정 파일을 업데이트 했습니다: "{CONFIG_FILE}"'        )
+else:
+    raise IsADirectoryError(f'"{CONFIG_FILE}" 파일 생성 실패.\n같은 명의 디렉토리가 존재합니다.')
 
+print('[INFO]',f'설정 파일을 업데이트 했습니다.')
 
-###############################################################
-# 버전 정보 확인
-###############################################################
-if config.get('DEFAULT', 'version', fallback='0.0.0') != VERSION:
-    print('[INFO]', '구 버전의 설정파일이 감지되었습니다.'                  )
-
-
-if True:
-    print('----------------------------------------------------------------')
+print('================================================================')
