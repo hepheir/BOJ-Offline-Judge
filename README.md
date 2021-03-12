@@ -22,14 +22,14 @@
 
 ## 요구 사항
 
-- **Python 3.7^** (외부 라이브러리는 사용되지 않았음)
+  - **Python 3.7^** (외부 라이브러리는 사용되지 않았음)
 
-- **사용하고자 하는 언어의 컴파일러** (설치된 경로를 `.boj/config.ini`안에 적절하게 입력해주세요)
+  - **사용하고자 하는 언어의 컴파일러** (설치된 경로를 `.boj/config.ini`안에 적절하게 입력해주세요)
 
 ## 지원 언어
 
-- Python3
-- C++
+  - Python3
+  - C++
 
 ---
 
@@ -65,8 +65,7 @@ problem # 문제 별 폴더
 python -m boj.judge "채점 소스코드"
 ```
 
-* 만약 잘 실행이 되지 않는다면, 파이썬 혹은 컴파일러 경로가 올바르지 않아서 오류가 발생하는 것일 가능성이 높습니다. `.boj/config.ini` 에서 잘못된 정보가 있는지 확인해주세요.
-
+  - 만약 잘 실행이 되지 않는다면, 파이썬 혹은 컴파일러 경로가 올바르지 않아서 오류가 발생하는 것일 가능성이 높습니다. `.boj/config.ini` 에서 잘못된 정보가 있는지 확인해주세요.
 
 ### 3. Visual Studio Code
 
@@ -74,26 +73,21 @@ python -m boj.judge "채점 소스코드"
 
 ```json
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "[BOJ Offline Judge] 현재 열린 파일 가채점",
-            "type": "shell",
-            "command": "python",
-            "args": [
-                "-m",
-                "boj.judge",
-                "${file}"
-            ],
-            "group": "build"
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "[BOJ Offline Judge] 현재 열린 파일 가채점",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "boj.judge", "${file}"],
+      "group": "build"
+    }
+  ]
 }
 ```
 
 등록된 작업은 [ <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> ] 에서 빠르게 호출 할 수 있습니다.
 
-
 ## 업데이트 로그
 
-* [별도 문서](https://github.com/Hepheir/BOJ-Offline-Judge/Update.md)로 분리
+  - [별도 문서](https://github.com/Hepheir/BOJ-Offline-Judge/Update.md)로 분리
