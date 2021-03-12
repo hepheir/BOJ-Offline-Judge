@@ -1,3 +1,3 @@
 USER_SETTINGS = {
-    
+
 }
