@@ -7,6 +7,11 @@ from boj.config.settings_directory import SETTINGS_DIRECTORY
 DEFAULT_SETTINGS = {
     'version': __version__,
 
+    'doc': '''
+        향후 업데이트 시 [DEFAULT] 섹션의 설정은 boj 모듈에 의해 덮어씌워지므로,
+        유저 설정은 하단의 [user] 섹션에 입력해주시기 바랍니다.
+    ''',
+
     # config.ini 가 저장되는 경로
     'path.settings.dirname': SETTINGS_DIRECTORY,
 
