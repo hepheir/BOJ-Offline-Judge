@@ -1,3 +1,10 @@
+""" boj.config 
+
+Configuaration Handler for module `boj`.
+
+config file will be stored as '%CurrentWorkingDirectory%/.boj/config.ini'
+"""
+
 import codecs
 import configparser
 import os
