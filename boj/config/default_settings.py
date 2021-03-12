@@ -30,16 +30,16 @@ DEFAULT_SETTINGS = {
 
     # BOJ로 부터 받아온 예제 입출력 데이터가 저장 될 경로
     'path.data.boj.sample.dirname': os.path.join('%(path.problem.dirname)s', 'data', 'boj', 'sample'),
-    
+
     # 채점시 시간 제한 (언어별 핸디캡 적용 전)
     'judge.run.timelimit': 4000,
-    
+
     # 채점 후 소요시간 표시
     'judge.brief.time': True,
 
     # 각 채점 별 사용 된 입력 데이터 파일명 표시
     'judge.brief.inputfile': True,
-    
+
     # C++ 언어의 컴파일러 경로
     'language.cpp.compiler.path': 'g++',
 
