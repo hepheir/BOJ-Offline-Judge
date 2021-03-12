@@ -1,5 +1,5 @@
 import configparser
-import os 
+import os
 
 from boj.config.settings_directory import SETTINGS_DIRECTORY
 from boj.config.default_settings import DEFAULT_SETTINGS
@@ -31,8 +31,10 @@ if os.path.isfile(CONFIG_FILE):
             config.write(config_file)
         print('[INFO]', '설정 파일 업데이트를 완료했습니다.')
           
+elif os.path.isdir(CONFIG_FILE):
+    raise IsADirectoryError(f'파일 생성 실패.\n같은 명의 디렉토리가 존재합니다.')
 
-elif os.path.exists(CONFIG_FILE):
+else:
     print('[INFO]', '설정 파일을 생성하고 있습니다...')
     config['DEFAULT'] = DEFAULT_SETTINGS
     config['user'] = USER_SETTINGS
@@ -40,9 +42,6 @@ elif os.path.exists(CONFIG_FILE):
     with open(CONFIG_FILE, 'w') as config_file:
         config.write(config_file)
     print('[INFO]', '설정 파일 생성을 완료했습니다.')
-
-else:
-    raise IsADirectoryError(f'"{CONFIG_FILE}" 파일 생성 실패.\n같은 명의 디렉토리가 존재합니다.')
 
 print('[INFO]',f'설정 파일을 업데이트 했습니다.')
 
