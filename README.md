@@ -97,10 +97,3 @@ python -m boj.judge "채점 소스코드"
 ## 업데이트 로그
 
 * [별도 문서](https://github.com/Hepheir/BOJ-Offline-Judge/Update.md)로 분리
-
-
-## 향후 계획
-
-- 더 많은 언어 지원
-- ~~메모리 사용량 측정~~
-- 문제별 시간/~~메모리 상한선~~ 설정
