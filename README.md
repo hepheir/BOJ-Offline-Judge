@@ -74,8 +74,6 @@ python -m boj.judge "채점 소스코드"
 
 ```json
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
@@ -98,28 +96,7 @@ python -m boj.judge "채점 소스코드"
 
 ## 업데이트 로그
 
-### 1.0.0
-
-- 가채점기 배포 시작
-
-### 1.0.1
-
-- **버그 수정**
-- **실행 방법 변경** (향후 기능 확장 고려)
-
-| 변경 후 | `python -m boj judge source_file` |
-| ------- | --------------------------------- |
-| 변경 전 | `python -m boj source_file`       |
-
-### 1.0.2
-
-- **버그 수정**
-- **모듈 구조 변경 (리팩토링)**
-- **실행 방법 추가** : `python -m boj.judge source_file`
-
-### 1.1.0
-
-- **문제 폴더 구성기 추가**
+* [별도 문서](https://github.com/Hepheir/BOJ-Offline-Judge/Update.md)로 분리
 
 
 ## 향후 계획
