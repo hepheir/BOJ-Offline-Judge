@@ -1,4 +1,4 @@
-""" BOJ. Offline Judge
+"""BOJ. Offline Judge
 
 백준 온라인 저지의 문제풀이를 보다 알차게 해줄 모듈.
 
