@@ -102,7 +102,7 @@ Cpp = BaseLanguage(
         "Main.cc",
         "-o",
         "Main",
-        "-std=gnu++14"
+        # "-std=gnu++14"
     ],
     runArgs=[
         # 다음의 오류에 유의:
