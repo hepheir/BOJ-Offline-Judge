@@ -101,7 +101,7 @@ Cpp = BaseLanguage(
         config.get('user', 'language.cpp.compiler.path'),
         "Main.cc",
         "-o",
-        "Main.exe",
+        "Main",
         "-std=gnu++14"
     ],
     runArgs=[
@@ -110,6 +110,6 @@ Cpp = BaseLanguage(
         #   Windows PowerShell은 기본적으로 현재 위치에서 명령을 로드하지 않습니다.
         #   이 명령을 신뢰하는 경우 대신 ".\Main.exe"을(를) 입력하십시오.
         #   자세한 내용은 "get-help about_Command_Precedence"를 참조하십시오.
-        os.path.join('.', 'Main.exe')
+        os.path.join('.', 'Main')
     ]
 )
