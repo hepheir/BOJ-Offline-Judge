@@ -106,10 +106,10 @@ Cpp = BaseLanguage(
         config.get('user', 'language.cpp.compiler.path'),
         "Main.cc",
         "-o",
-        "Main",
+        "Main.exe",
         "-std=gnu++14"
     ],
     runArgs=[
-        "./Main"
+        "Main.exe"
     ]
 )
