@@ -1,4 +1,4 @@
-""" boj.config 
+"""boj.config
 
 Configuaration Handler for module `boj`.
 
