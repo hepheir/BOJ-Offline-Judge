@@ -60,6 +60,11 @@ def action(args:argparse.Namespace):
             TimeRecorder.check()
             language.run(input_file=input_file, output_file=stdoutFilename)
             TimeRecorder.check()
+        except FileNotFoundError:
+            print('[INFO]', '언어 실행 명령어에 문제가 있습니다.')
+            print('[INFO]', language.language.runArgs)
+            print('================================================================')
+            return
         except subprocess.CalledProcessError:
             verdict = '런타임 에러'
         except subprocess.TimeoutExpired:
