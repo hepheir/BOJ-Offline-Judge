@@ -8,13 +8,13 @@ from boj.core import DatasetQueue, Language
 from boj.util import shorten_path, TimeRecorder
 
 
-def action(args:argparse.Namespace):
+def action(args: argparse.Namespace):
     sourcefile: pathlib.Path = args.src
 
     if True:
-    #############################################################################
-    # 채점 준비 : 소스코드 백업 및 데이터 셋 생성
-    #############################################################################
+        #############################################################################
+        # 채점 준비 : 소스코드 백업 및 데이터 셋 생성
+        #############################################################################
 
         print('[INFO]', '채점 준비중...                                        ')
 
@@ -43,17 +43,16 @@ def action(args:argparse.Namespace):
     else:
         print('[INFO]', '채점 준비 완료                                        ')
         print('----------------------------------------------------------------')
-    
+
     finally:
         print('[INFO]', f'선택된 파일: "{shorten_path(sourcefile)}"            ')
-        print('[INFO]',f'선택된 언어: {language.name}                          ')
-        print('[INFO]',f'{len(datasetQueue.queue)}개의 데이터 셋 로드 됨            ')
+        print('[INFO]', f'선택된 언어: {language.name}                          ')
+        print('[INFO]', f'{len(datasetQueue.queue)}개의 데이터 셋 로드 됨            ')
         print('----------------------------------------------------------------')
 
     #############################################################################
     # 채점 시작
     #############################################################################
-
 
     for input_file, output_file in datasetQueue.queue:
         print('[INFO]', '채점 중...                                  ', end='\r')
@@ -64,7 +63,7 @@ def action(args:argparse.Namespace):
             TimeRecorder.check()
             language.run(input_file=input_file, output_file=stdoutFilename)
             TimeRecorder.check()
-    
+
         except FileNotFoundError as fileNotFoundError:
             if not os.path.isfile(input_file):
                 print('[INFO]', '다음 데이터를 로드하는 중 문제가 발생하였습니다.')
@@ -103,7 +102,7 @@ def action(args:argparse.Namespace):
             if config.getboolean('user', 'judge.brief.inputfile'):
                 result += f'\t{shorten_path(input_file)}'
 
-        print('[INFO]', result                                                  )
+        print('[INFO]', result)
 
     #############################################################################
     # 채점 완료
