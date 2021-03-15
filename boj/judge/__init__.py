@@ -96,7 +96,7 @@ def action(sourcefile: pathlib.Path):
         finally:
             result = f'{verdict:10s}'
             if config.getboolean('user', 'judge.brief.time'):
-                result += f'\t{TimeRecorder.pop():>7d} ms'
+                result += f'\t{TimeRecorder.pop():>7d} ms' if (verdict == '맞았습니다!!') else ' '*10
             if config.getboolean('user', 'judge.brief.inputfile'):
                 result += f'\t{shorten_path(input_file)}'
 
