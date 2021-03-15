@@ -30,7 +30,7 @@ if args.command == 'judge':
     parser.add_argument('src', type=pathlib.Path, help='채점할 소스코드')
 
     args = parser.parse_args(sub_args)
-    action(args)
+    action(args.src)
 
 elif args.command == 'setup':
     from boj.core import Problem

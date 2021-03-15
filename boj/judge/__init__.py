@@ -8,9 +8,7 @@ from boj.core import DatasetQueue, Language
 from boj.util import shorten_path, TimeRecorder
 
 
-def action(args: argparse.Namespace):
-    sourcefile: pathlib.Path = args.src
-
+def action(sourcefile: pathlib.Path):
     if True:
         #############################################################################
         # 채점 준비 : 소스코드 백업 및 데이터 셋 생성
