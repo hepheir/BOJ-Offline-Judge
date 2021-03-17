@@ -72,6 +72,8 @@ class Language:
             return Python3
         if ext == '.cpp' or ext == '.cc':
             return Cpp14
+        if ext == '.c':
+            return C11
         else:
             raise LanguageNotSupported('지원되지 않는 언어입니다.')
 
@@ -103,6 +105,31 @@ Cpp14 = BaseLanguage(
         "-o",
         "Main",
         # "-std=gnu++14"
+    ],
+    runArgs=[
+        # 다음의 오류에 유의:
+        #   Suggestion [3,General]: Main.exe 명령이 현재 위치에 있지만 이 명령을 찾을 수 없습니다.
+        #   Windows PowerShell은 기본적으로 현재 위치에서 명령을 로드하지 않습니다.
+        #   이 명령을 신뢰하는 경우 대신 ".\Main.exe"을(를) 입력하십시오.
+        #   자세한 내용은 "get-help about_Command_Precedence"를 참조하십시오.
+        os.path.join(config.get('user', 'path.temp.dirname'), 'Main')
+    ]
+)
+
+C11 = BaseLanguage(
+    languageName='C11',
+    languageId=75,
+    submitFile='Main.c',
+    compileArgs=[
+        config.get('user', 'language.c.compiler.path'),
+        "Main.c",
+        "-o",
+        "Main",
+        # "-02",
+        # "-Wall",
+        # "-lm",
+        # "-static",
+        # "-std=gnu11"
     ],
     runArgs=[
         # 다음의 오류에 유의:
