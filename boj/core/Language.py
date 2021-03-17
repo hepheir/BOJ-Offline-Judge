@@ -71,7 +71,7 @@ class Language:
         if ext == '.py':
             return Python3
         if ext == '.cpp' or ext == '.cc':
-            return Cpp
+            return Cpp14
         else:
             raise LanguageNotSupported('지원되지 않는 언어입니다.')
 
@@ -93,7 +93,7 @@ Python3 = BaseLanguage(
     memorylimit=lambda KB: (KB*2+32000)
 )
 
-Cpp = BaseLanguage(
+Cpp14 = BaseLanguage(
     languageName='C++ 14',
     languageId=88,
     submitFile='Main.cc',
