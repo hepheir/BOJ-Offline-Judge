@@ -1,7 +1,9 @@
 import argparse
 import pathlib
+import subprocess
 import textwrap
 
+from boj.config import config
 
 parser = argparse.ArgumentParser(
     prog=textwrap.dedent('''
@@ -37,3 +39,30 @@ elif args.command == 'setup':
 
     problem = Problem(int(input('문제 번호: ')))
     problem.make_sample_data_files()
+
+    if config.getboolean('user', 'setup.commitAfterSetup'):
+        commit_msg = config.get('user', 'setup.commitMessage', vars={
+            'problem.number': problem.number,
+            'problem.title': problem.title,
+        })
+        subprocess.run(args=[
+            config.get('user', 'common.git.path'),
+            'add',
+            config.get('user', 'path.data.boj.sample.dirname', vars={
+                'problem.number': problem.number,
+                'problem.title': problem.title,
+            })
+        ])
+        subprocess.run(args=[
+            config.get('user', 'common.git.path'),
+            'commit',
+            '-m',
+            config.get('user', 'setup.commitMessage', vars={
+                'problem.number': problem.number,
+                'problem.title': problem.title,
+            })
+        ])
+
+    if config.getboolean('user', 'setup.makeDummyAfterSetup'):
+        with open(config.get('user', 'setup.dummyFileName'), 'w'):
+            pass
