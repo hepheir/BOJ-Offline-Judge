@@ -48,4 +48,19 @@ DEFAULT_SETTINGS = {
 
     # 파이썬 경로
     'language.python3.python.path': 'python',
+
+    # 깃 경로
+    'common.git.path': 'git',
+
+    # 문제 폴더 구성 후 커밋 여부
+    'setup.commitAfterSetup': False,
+
+    # 문제 폴더 구성 후 커밋 메시지
+    'setup.commitMessage': '%(problem.number)s번 예제 데이터 셋 추가',
+
+    # 문제 폴더 구성 후 더미 파일 생성
+    'setup.makeDummyAfterSetup': False,
+
+    # 문제 폴더 구성 후 생성할 더미 파일의 파일명
+    'setup.dummyFileName': os.path.join('%(path.problem.dirname)s', '.gitkeep'),
 }
