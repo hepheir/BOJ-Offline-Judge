@@ -64,5 +64,8 @@ elif args.command == 'setup':
         ])
 
     if config.getboolean('user', 'setup.makeDummyAfterSetup'):
-        with open(config.get('user', 'setup.dummyFileName'), 'w'):
+        with open(config.get('user', 'setup.dummyFileName', vars={
+                'problem.number': problem.number,
+                'problem.title': problem.title,
+            }), 'w'):
             pass
