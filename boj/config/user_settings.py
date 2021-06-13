@@ -1,3 +1,0 @@
-USER_SETTINGS = {
-
-}
