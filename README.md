@@ -1,5 +1,6 @@
 <!-- Badges -->
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9c0158b110a54cce953d319d5f5b438d)](https://www.codacy.com/gh/Hepheir/BOJ-Offline-Judge/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Hepheir/BOJ-Offline-Judge&amp;utm_campaign=Badge_Grade)
 [![PyPI/version]][pypi/package]
 [![PyPI/license]][pypi/package]
 [![PyPI/downloads]][pypi/package]
