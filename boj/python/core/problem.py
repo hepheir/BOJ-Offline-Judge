@@ -1,9 +1,12 @@
 from __future__ import annotations
+
+import dataclasses
 from typing import Callable
 
 from boj.python.core.web import HTMLElement
 
 
+@dataclasses.dataclass
 class Document:
     title: str
     desc: HTMLElement
@@ -12,6 +15,7 @@ class Document:
     hint: HTMLElement
 
 
+@dataclasses.dataclass
 class Rule:
     judge_method: int
     time_limit: float
