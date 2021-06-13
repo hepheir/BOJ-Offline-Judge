@@ -3,12 +3,17 @@
 """
 
 from typing import Callable
-
+import requests
 
 class Crawler:
-    get: Callable[[str], str]
-
+    @classmethod
+    def get(cls, url: str) -> str:
+        html = requests.get(url).text
+        return str(html)
+    
 
 class HTMLElement:
     inner_HTML: str
     to_markdown: Callable[[], str]
+
+
