@@ -16,6 +16,10 @@ class Document:
 
 @dataclasses.dataclass
 class Rule:
+    # Definition Group JudgeMethod
+    DEFAULT = 1
+    SPECIAL_JUDGE = 2
+
     judge_method: int
     time_limit: float
     memory_limit: float
