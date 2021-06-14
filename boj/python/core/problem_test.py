@@ -12,7 +12,7 @@ class Test_Problem(unittest.TestCase):
         self.problem = Problem()
         return super().setUp()
 
-    def testLoad_fromWeb(self):
+    def testLoad_FromWeb(self):
         self.problem.number = 1000
         self.problem.load()
         self.assertEqual(self.problem.number, 1000)
@@ -25,12 +25,12 @@ class Test_Problem(unittest.TestCase):
         self.assertTrue(isinstance(self.problem.rule.memory_limit, float))
         self.assertTrue(isinstance(self.problem.rule.time_limit, float))
 
-    def testLoad_withoutNumber(self):
+    def testLoad_RaisesAssertionError(self):
         # 문제 번호 없이는 웹으로 부터 문제를 불러오는게 불가능합니다.
-        with self.assertRaises(Exception):
+        with self.assertRaises(AssertionError):
             self.problem.load()
 
-    def testLoad_fromLocal(self):
+    def testLoad_FromLocal(self):
         self.problem.load(SAMPLE_PROBLEM)
         self.assertEqual(self.problem.number, 1000)
         self.assertEqual(self.problem.title, 'A+B')
@@ -45,3 +45,7 @@ class Test_Problem(unittest.TestCase):
         self.assertEqual(self.problem.rule.judge_method, Rule.DEFAULT)
         self.assertEqual(self.problem.rule.time_limit, 2.0)
         self.assertEqual(self.problem.rule.memory_limit, 128.0)
+
+    def testLoad_RaisesFileNotFoundError(self):
+        with self.assertRaises(FileNotFoundError):
+            self.problem.load('./This is some path that does not exist/')
