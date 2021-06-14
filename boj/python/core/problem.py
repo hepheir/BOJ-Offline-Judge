@@ -8,7 +8,6 @@ from boj.python.core.web import HTMLElement
 
 @dataclasses.dataclass
 class Document:
-    title: str
     desc: HTMLElement
     input: HTMLElement
     output: HTMLElement
@@ -24,6 +23,7 @@ class Rule:
 
 class Problem:
     number: int
+    title: str
     document: Document
     rule: Rule
 
