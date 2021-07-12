@@ -1,22 +1,5 @@
-from typing import Dict
+from boj import problem
+from boj.problem import BaseProblem, BOJProblem
 
 
 __version__ = '0.0.0'
-
-
-class BaseProblem:
-    def __init__(self) -> None:
-        self._id: str = ''
-        self._document: Dict[str, str] = dict()
-
-    @property
-    def id(self) -> str:
-        return self._id
-
-    @id.setter
-    def id(self, value: str) -> None:
-        self._id = value
-
-    @property
-    def document(self) -> Dict[str, str]:
-        return self._document
