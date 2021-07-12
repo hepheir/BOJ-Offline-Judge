@@ -1,5 +1,5 @@
-from boj.problem.base import BaseProblem
-from boj.problem.baekjoon_online_judge import BOJProblem
+from boj import problem
+from boj.problem import BaseProblem, BOJProblem
 
 
 __version__ = '0.0.0'
