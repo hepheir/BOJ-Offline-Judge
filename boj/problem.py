@@ -30,9 +30,9 @@ class BOJProblem(BaseProblem):
     LANGUAGE_ENGLISH = 1
 
     def __init__(self, number: int, language: int = 0) -> None:
-        # Use problem url as id
-        self._url = f'https://www.acmicpc.net/problem/{number:d}'
-        super().__init__(id=self._url)
+        super().__init__(
+            id=f"https://www.acmicpc.net/problem/{number:d}"
+        )
         self._language: int = language
         self._data: List[Dict[str, str]]
         self._json: str
@@ -58,6 +58,10 @@ class BOJProblem(BaseProblem):
         # Update instance vars
         self._json = base64.b64decode(text_base64)
         self._data = json.loads(self._json)
+
+    @property
+    def url(self) -> str:
+        return self.id
 
     @property
     def data(self) -> List[Dict[str, str]]:
