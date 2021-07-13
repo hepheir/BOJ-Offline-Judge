@@ -32,7 +32,7 @@ class BOJProblem(BaseProblem):
     LANGUAGE_ENGLISH = 1
 
     def __init__(self, number: int, language: Optional[int] = None) -> None:
-        self._json: str
+        self._json: bytes
         self._data: List[Dict[str, str]]
         super().__init__(
             id=f"https://www.acmicpc.net/problem/{number:d}"
@@ -48,7 +48,7 @@ class BOJProblem(BaseProblem):
         return self._data
 
     @property
-    def json(self) -> str:
+    def json(self) -> bytes:
         return self._json
 
     @property
@@ -107,8 +107,8 @@ class BOJProblem(BaseProblem):
             if soup_tag is None:
                 raise Exception
             text_base64 = soup_tag.text
-            text_json = base64.b64decode(text_base64)
-            dict_data = json.loads(text_json)
+            text_json: bytes = base64.b64decode(text_base64)
+            dict_data: List[Dict[str, str]] = json.loads(text_json)
             if not dict_data:
                 raise Exception
         except InvalidSchema:
