@@ -35,6 +35,7 @@ class BOJProblem(BaseProblem):
         super().__init__(id=self._url)
         self._language: int = language
         self._data: List[Dict[str, str]]
+        self._json: str
         self._set_data()
         # Use Korean as default language
         if self._language >= len(self._data):
@@ -54,13 +55,17 @@ class BOJProblem(BaseProblem):
         soup = BeautifulSoup(text_html, 'html.parser')
         soup_tag: Tag = soup.select_one('#problem-lang-base64')  # type: ingore
         text_base64 = soup_tag.text
-        text_json = base64.b64decode(text_base64)
-        data_dict = json.loads(text_json)
-        self._data = data_dict
+        # Update instance vars
+        self._json = base64.b64decode(text_base64)
+        self._data = json.loads(self._json)
 
     @property
     def data(self) -> List[Dict[str, str]]:
         return self._data
+
+    @property
+    def json(self) -> str:
+        return self._json
 
     @property
     def problem_id(self) -> int:
