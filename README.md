@@ -1,100 +1,74 @@
 <!-- Badges -->
 
-[![PyPI/version]][pypi/package]
-[![PyPI/license]][pypi/package]
-[![PyPI/downloads]][pypi/package]
-[![PyPI/status]][pypi/package]
-[![GitHub/issues]][github/repo]
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/9c0158b110a54cce953d319d5f5b438d)](https://www.codacy.com/gh/Hepheir/BOJ-Offline-Judge/dashboard?utm_source=github.com&utm_medium=referral&utm_content=Hepheir/BOJ-Offline-Judge&utm_campaign=Badge_Grade)
+[![Shields Badge - PyPI/version](https://img.shields.io/pypi/v/boj)](https://pypi.org/project/boj/)
+[![Shields Badge - PyPI/license](https://img.shields.io/pypi/l/boj)](https://pypi.org/project/boj/)
+[![Shields Badge - PyPI/downloads](https://img.shields.io/pypi/dm/boj)](https://pypi.org/project/boj/)
+[![Shields Badge - PyPI/status](https://img.shields.io/pypi/status/boj)](https://pypi.org/project/boj/)
+[![GitHub/issues](https://img.shields.io/github/issues/Hepheir/BOJ-Offline-Judge.svg)](https://github.com/Hepheir/BOJ-Offline-Judge/issues)
 
-# BOJ 오프라인 저지
+# BOJ Offline Judge
 
-당신의 채점 결과를 예측해드립니다.
+## 개요
 
-## 요구 사항
+BOJ-Offline-Judge는 백준 온라인 저지를 CLI, 혹은 Python 스크립트에서 이용 하기 위한 패키지입니다.
 
--   **Python 3.7^** (외부 라이브러리는 사용되지 않았음)
--   **사용하고자 하는 언어의 컴파일러** (설치된 경로를 `.boj/config.ini`안에 적절하게 입력해주세요)
+BOJ는 간단한 JSON혹은 Python의 딕셔너리 형태의 문제 데이터를 제공합니다.
 
-## 지원 언어
+## `BOJProblem`
 
--   Python3
--   C++
+`boj.BOJProblem()` 객체를 이용하여 문제 데이터에 접근할 수 있습니다.
 
-* * *
+### 인스턴스 생성
 
-## 사용 방법
+객체의 인스턴스는 다음과 같이 생성합니다.
 
-### 1. 데이터 셋 준비
-
-작성한 소스코드와 같은 디렉토리 내에 `data` 폴더를 생성하고, `~~.in`, `~~.out`으로 끝나는 채점 데이터 파일을 준비해주세요.
-
-**예시:**
-
-    problem # 문제 별 폴더
-    ├── data
-    │ ├── boj
-    │ │ ├── sample
-    │ │ │ ├── 1.in  # 데이터 셋 1
-    │ │ │ └── 1.out # 데이터 셋 1
-    │ │ │
-    │ │ └── hepheir
-    │ │   ├── 1.in  # 데이터 셋 2
-    │ │   └── 1.out # 데이터 셋 2
-    │ │
-    │ ├── a.in  # 데이터 셋 3
-    │ └── a.out # 데이터 셋 3
-    │
-    └── source.py # 채점할 소스
-
-### 2. 가채점기 실행
-
-```bash
-python -m boj.judge "채점 소스코드"
+```python
+>>> from boj import BOJProblem
+>>> problem = BOJProblem(1000)
 ```
 
--   만약 잘 실행이 되지 않는다면, 파이썬 혹은 컴파일러 경로가 올바르지 않아서 오류가 발생하는 것일 가능성이 높습니다. `.boj/config.ini` 에서 잘못된 정보가 있는지 확인해주세요.
+Args:
 
-### 3. Visual Studio Code
+-   `number`: (int) 필수; 문제의 번호입니다.
 
-<kbd>Ctrl</kbd>+<kbd>P</kbd>를 누른 뒤, `> Tasks: Configure Tasks`, `Others` 를 선택하면 나오는 `.vscode/tasks.json` 파일에서 다음과 같은 작업을 등록하여 가채점 과정을 더욱 편리하게 할 수 있습니다.
+### 프로퍼티
 
-```json
-{
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "[BOJ Offline Judge] 현재 열린 파일 가채점",
-      "type": "shell",
-      "command": "python",
-      "args": ["-m", "boj.judge", "${file}"],
-      "group": "build"
-    }
-  ]
-}
+현재 사용할 수 있는 프로퍼티에는 다음의 값들이 있습니다.
+
+-   `problem_id`: (int) 문제의 번호
+-   `problem_lang`: (int) 문제의 언어 (0: 한국어, 1: 영어)
+-   `title`: (str) 문제의 제목
+-   `description`: (str) 문제의 내용 (HTML 문서)
+-   `input`: (str) 문제의 입력 설명 (HTML 문서)
+-   `output`: (str) 문제의 출력 설명 (HTML 문서)
+-   `hint`: (str) 문제의 힌트 (HTML 문서)
+
+### 예시 코드
+
+다음은 `boj` 모듈을 사용하여 1000번 A+B 문제 데이터를 불러오는 예시 코드 입니다.
+
+```python
+>>> from boj import BOJProblem
+
+>>> problem = BOJProblem(1000)
+
+>>> print(problem.problem_id)
+1000
+
+>>> print(problem.title)
+'A+B'
+
+>>> print(problem.data)
+[{'problem_id': '1000', 'problem_lang': '0', 'title': 'A+B', 'description': '<p>두 정수 A와 B를 입력받은 다음, ...', ... }, ... ]
+
+>>> print(problem.json)
+b'[{"problem_id": "1000", "problem_lang": "0", "title": "A+B", "description": "<p>\\ub450 \\uc815\\uc218 ...'
 ```
 
-등록된 작업은 [ <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> ] 에서 빠르게 호출 할 수 있습니다.
+### 변경사항
 
-## 업데이트 로그
+#### 0.0.1
 
--   [별도 문서](https://github.com/Hepheir/BOJ-Offline-Judge/Update.md)로 분리
-
-<!-- References -->
-
-[pypi/package]: https://pypi.org/project/boj/
-
-[pypi/python]: https://img.shields.io/pypi/pyversions/boj
-
-[pypi/version]: https://img.shields.io/pypi/v/boj
-
-[pypi/downloads]: https://img.shields.io/pypi/dm/boj
-
-[pypi/license]: https://img.shields.io/pypi/l/boj
-
-[pypi/status]: https://img.shields.io/pypi/status/boj
-
-[github/repo]: https://github.com/Hepheir/BOJ-Offline-Judge
-
-[github/stars]: https://img.shields.io/github/stars/Hepheir/BOJ-Offline-Judge.svg
-
-[github/issues]: https://img.shields.io/github/issues/Hepheir/BOJ-Offline-Judge.svg
+-   `BOJProblem` 객체 구현
+    -   문제 번호를 이용하여 백준 온라인 저지에서 문제 데이터를 불러옵니다.
