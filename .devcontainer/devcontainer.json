@@ -5,7 +5,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"context": "..",
-		"args": { 
+		"args": {
 			// Update 'VARIANT' to pick a Python version: 3, 3.6, 3.7, 3.8, 3.9
 			"VARIANT": "3",
 			// Options
@@ -15,7 +15,7 @@
 	},
 
 	// Set *default* container specific settings.json values on container create.
-	"settings": { 
+	"settings": {
 		"python.pythonPath": "/usr/local/bin/python",
 		"python.languageServer": "Pylance",
 		"python.linting.enabled": true,
@@ -33,8 +33,12 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
+		"bierner.markdown-preview-github-styles",
+		"github.vscode-pull-request-github",
+		"mhutchie.git-graph",
+		"mrmlnc.vscode-remark",
 		"ms-python.python",
-		"ms-python.vscode-pylance"
+		"ms-python.vscode-pylance",
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
