@@ -2,4 +2,4 @@ from boj import problem
 from boj.problem import BaseProblem, BOJProblem
 
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
