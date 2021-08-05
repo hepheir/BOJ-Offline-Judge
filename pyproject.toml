@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "boj"
-version = "0.0.2"
+version = "0.0.2a"
 description = "BOJ Offline Judge"
 license = "GPL-3.0-only"
 authors = ["Hepheir <hepheir@gmail.com>"]
