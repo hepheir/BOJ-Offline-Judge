@@ -25,8 +25,8 @@ autopep8 = "^1.5.5"
 pylint = "^2.8.3"
 pytest = "^5.2"
 
-[tool.poetry.scripts]
-poetry = 'poetry.console:run'
+# [tool.poetry.scripts]
+# poetry = 'poetry.console:run'
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/Hepheir/BOJ-Offline-Judge/issues"
