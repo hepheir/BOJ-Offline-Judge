@@ -47,3 +47,6 @@ BOJ는 간단한 JSON혹은 Python의 딕셔너리 형태의 문제 데이터를
 
 -   Python 패키지 관리 시스템 `poetry` 사용해보기
       <sup>[poetry](https://python-poetry.org/)</sup>
+
+-   `pytest` 모듈을 이용한 유닛테스트 관리
+      <sup>[pytest](https://docs.pytest.org//)</sup>
