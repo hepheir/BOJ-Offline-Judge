@@ -44,3 +44,6 @@ BOJ는 간단한 JSON혹은 Python의 딕셔너리 형태의 문제 데이터를
 
 -   Code Quality 관리하기
     <sup>[Codacy](https://app.codacy.com/gh/Hepheir/BOJ-Offline-Judge/dashboard?utm_source=github.com&utm_medium=referral&utm_content=Hepheir/BOJ-Offline-Judge&utm_campaign=Badge_Grade)</sup>
+
+-   Python 패키지 관리 시스템 `poetry` 사용해보기
+      <sup>[poetry](https://python-poetry.org/)</sup>
