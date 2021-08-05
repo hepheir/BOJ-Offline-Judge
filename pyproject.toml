@@ -21,7 +21,6 @@ bs4 = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
 twine = "^3.4.1"
-build = "^0.3.1.post1"
 autopep8 = "^1.5.5"
 pylint = "^2.8.3"
 pytest = "^5.2"
