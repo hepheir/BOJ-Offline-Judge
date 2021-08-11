@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "boj"
-version = "0.0.2"
+version = "0.0.2a"
 description = "BOJ Offline Judge"
 license = "GPL-3.0-only"
 authors = ["Hepheir <hepheir@gmail.com>"]
 maintainers = ["Hepheir <hepheir@gmail.com>"]
-readme = "README_pypi.md"
+readme = "docs/README.md"
 repository = "https://github.com/Hepheir/BOJ-Offline-Judge"
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -25,8 +25,8 @@ autopep8 = "^1.5.5"
 pylint = "^2.8.3"
 pytest = "^5.2"
 
-[tool.poetry.scripts]
-poetry = 'poetry.console:run'
+# [tool.poetry.scripts]
+# poetry = 'poetry.console:run'
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/Hepheir/BOJ-Offline-Judge/issues"
