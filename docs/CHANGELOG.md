@@ -49,3 +49,11 @@ Wed Aug 11 2021
     <sup>[\[참고1\]](https://packaging.python.org/guides/distributing-packages-using-setuptools/#choosing-a-versioning-scheme)</sup>
     <sup>[\[참고2\]](https://www.python.org/dev/peps/pep-0440/#public-version-identifiers)</sup>
     <sup>[\[참고3\]](https://doc.sitecore.com/en/SdnArchive/FAQ/Administration/ALPHA%20BETA.html)</sup>
+
+-   문서 정리
+
+    GitHub에서 레포지토리의 대표 README.md를 제외하고 모두 "[/docs](/docs)" 디렉토리로 옮김.
+
+    -  "[CHANGELOG.md](/docs/CHANGELOG.md)"를 이용하여 변경사항을 기록
+    -  "[CONTRIBUTING.md](/docs/CONTRIBUTING.md)"를 이용하여 프로젝트에 참여 방법을 명세함
+    -  "[README.md](/docs/README.md)"를 이용하여 PyPI에서 사용할 대표 문서 내용 관리
