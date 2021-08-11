@@ -13,7 +13,7 @@
 
 ### BOJ Offline Judge란?
 
-BOJ-Offline-Judge는 백준 온라인 저지를 CLI, 혹은 Python 스크립트에서 이용 하기 위한 패키지입니다.
+BOJ-Offline-Judge는 백준 온라인 저지를 CLI, 혹은 Python 스크립트를 통해 이용 하기 위해 제작한 API 입니다.
 
 BOJ는 간단한 JSON혹은 Python의 딕셔너리 형태의 문제 데이터를 제공합니다.
 
