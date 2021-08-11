@@ -11,7 +11,7 @@
 
 ## 개요
 
-BOJ-Offline-Judge는 백준 온라인 저지를 CLI, 혹은 Python 스크립트에서 이용 하기 위한 패키지입니다.
+BOJ-Offline-Judge는 백준 온라인 저지를 CLI, 혹은 Python 스크립트를 통해 이용 하기 위해 제작한 API 입니다.
 
 BOJ는 간단한 JSON혹은 Python의 딕셔너리 형태의 문제 데이터를 제공합니다.
 
@@ -65,10 +65,3 @@ Args:
 >>> print(problem.json)
 b'[{"problem_id": "1000", "problem_lang": "0", "title": "A+B", "description": "<p>\\ub450 \\uc815\\uc218 ...'
 ```
-
-### 변경사항
-
-#### 0.0.1
-
--   `BOJProblem` 객체 구현
-    -   문제 번호를 이용하여 백준 온라인 저지에서 문제 데이터를 불러옵니다.

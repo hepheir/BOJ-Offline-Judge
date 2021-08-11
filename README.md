@@ -9,13 +9,17 @@
 
 # BOJ Offline Judge
 
-## BOJ Offline Judge란?
+## 프로젝트 설명
 
-BOJ-Offline-Judge는 백준 온라인 저지를 CLI, 혹은 Python 스크립트에서 이용 하기 위한 패키지입니다.
+### BOJ Offline Judge란?
+
+BOJ-Offline-Judge는 백준 온라인 저지를 CLI, 혹은 Python 스크립트를 통해 이용 하기 위해 제작한 API 입니다.
 
 BOJ는 간단한 JSON혹은 Python의 딕셔너리 형태의 문제 데이터를 제공합니다.
 
-[BOJ에 관한 설명 및 사용방법은 이 쪽으로](./README_pypi.md)
+-   [프로젝트 소개 보기](/docs/README.md)
+-   [변경 이력 보기](/docs/CHANGELOG.md)
+-   [프로젝트에 기여하기](/docs/CONTRIBUTING.md)
 
 ## 프로젝트 목적
 
@@ -44,3 +48,9 @@ BOJ는 간단한 JSON혹은 Python의 딕셔너리 형태의 문제 데이터를
 
 -   Code Quality 관리하기
     <sup>[Codacy](https://app.codacy.com/gh/Hepheir/BOJ-Offline-Judge/dashboard?utm_source=github.com&utm_medium=referral&utm_content=Hepheir/BOJ-Offline-Judge&utm_campaign=Badge_Grade)</sup>
+
+-   Python 패키지 관리 시스템 `poetry` 사용해보기
+      <sup>[poetry](https://python-poetry.org/)</sup>
+
+-   `pytest` 모듈을 이용한 유닛테스트 관리
+      <sup>[pytest](https://docs.pytest.org//)</sup>
