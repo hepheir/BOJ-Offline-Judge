@@ -1,9 +1,7 @@
-
 from abc import ABCMeta, abstractmethod
-from typing import Optional
 
-
-from boj.document import Document, BOJDocument, browse_boj_document_from_web
+from boj.document import Document, BOJDocument
+from boj.api.net.acmicpc import get_problem_data, get_problem_url
 
 
 class Problem(metaclass=ABCMeta):
@@ -26,11 +24,19 @@ class Problem(metaclass=ABCMeta):
 LANGUAGE_KOREAN = "0"
 LANGUAGE_ENGLISH = "1"
 
+
 class BOJProblem(Problem):
-    def __init__(self, number: int, language: Optional[str] = LANGUAGE_KOREAN) -> None:
-        self._problem_url = f"https://www.acmicpc.net/problem/{number:d}"
-        self._documents = browse_boj_document_from_web(self._problem_url)
+    def __init__(self,
+                 number: int,
+                 language: str = LANGUAGE_KOREAN,
+                 use_cache: bool = True) -> None:
         self.lang = language
+        self._problem_url = get_problem_url(boj_problem_number=number)
+        self._documents = {}
+        for data in get_problem_data(boj_problem_number=number,
+                                     use_cache=use_cache):
+            lang_code = data['problem_lang']
+            self._documents[lang_code] = BOJDocument(**data)
 
     @property
     def id(self) -> str:
@@ -39,4 +45,3 @@ class BOJProblem(Problem):
     @property
     def document(self) -> BOJDocument:
         return self._documents[self.lang]
-
