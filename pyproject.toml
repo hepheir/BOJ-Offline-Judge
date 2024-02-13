@@ -1,37 +1,32 @@
-[tool.poetry]
+[project]
 name = "boj"
-version = "0.0.2a"
+version = "0.1.0"
+authors = [{ name = "Hepheir", email = "hepheir@gmail.com" }]
+maintainers = [{ name = "Hepheir", email = "hepheir@gmail.com" }]
 description = "BOJ Offline Judge"
-license = "GPL-3.0-only"
-authors = ["Hepheir <hepheir@gmail.com>"]
-maintainers = ["Hepheir <hepheir@gmail.com>"]
-readme = "docs/README.md"
-repository = "https://github.com/Hepheir/BOJ-Offline-Judge"
+license = { file = "LICENSE" }
+readme = { file = "README.md", content-type = "text/markdown" }
+requires-python = ">=3.6"
+keywords = ['boj']
 classifiers = [
-    "Programming Language :: Python :: 3",
+    "Development Status :: 1 - Planning",
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Natural Language :: Korean",
     "Operating System :: OS Independent",
-    "Development Status :: 2 - Pre-Alpha"
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Utilities",
+    "Typing :: Typed",
 ]
 
-[tool.poetry.dependencies]
-python = "^3.6"
-requests = "^2.26.0"
-bs4 = "^0.0.1"
+[project.urls]
+Homepage = "https://github.com/Hepheir/BOJ-Offline-Judge"
+Repository = "https://github.com/Hepheir/BOJ-Offline-Judge"
+Issues = "https://github.com/Hepheir/BOJ-Offline-Judge/issues"
+Changelog = "https://github.com/hepheir/BOJ-Offline-Judge/blob/main/CHANGELOG.md"
 
-[tool.poetry.dev-dependencies]
-twine = "^3.4.1"
-autopep8 = "^1.5.5"
-pylint = "^2.8.3"
-pytest = "^5.2"
-
-# [tool.poetry.scripts]
-# poetry = 'poetry.console:run'
-
-[tool.poetry.urls]
-"Bug Tracker" = "https://github.com/Hepheir/BOJ-Offline-Judge/issues"
-
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["beautifulsoup4>=4.12.3", "requests>=2.31.0", "setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
