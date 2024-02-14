@@ -1,6 +1,6 @@
 [project]
 name = "boj"
-version = "0.1.1"
+version = "0.1.2"
 authors = [{ name = "Hepheir", email = "hepheir@gmail.com" }]
 maintainers = [{ name = "Hepheir", email = "hepheir@gmail.com" }]
 description = "BOJ Offline Judge"
