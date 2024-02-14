@@ -1,6 +1,6 @@
 [project]
 name = "boj"
-version = "0.1.0"
+version = "0.1.1"
 authors = [{ name = "Hepheir", email = "hepheir@gmail.com" }]
 maintainers = [{ name = "Hepheir", email = "hepheir@gmail.com" }]
 description = "BOJ Offline Judge"
@@ -28,5 +28,5 @@ Changelog = "https://github.com/hepheir/BOJ-Offline-Judge/blob/main/CHANGELOG.md
 where = ["src"]
 
 [build-system]
-requires = ["beautifulsoup4>=4.12.3", "requests>=2.31.0", "setuptools>=61.0"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
